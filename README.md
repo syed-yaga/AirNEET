@@ -107,6 +107,12 @@ neet-airplane-tutor/
     └── Procfile                       # web: node dist/index.js
 ```
 
+## Live Deployments & Partner Integrations
+
+- **Cloud Review Dashboard (Render Web Service):** [https://airneet.onrender.com/dashboard](https://airneet.onrender.com/dashboard)
+- **Sync Webhook (Render API):** `POST https://airneet.onrender.com/api/sync`
+- **Partner Tech Used:** Hosted on **Render** (Node.js web service receiving offline sync payloads).
+
 ---
 
 ## Quickstart Guide
@@ -193,6 +199,12 @@ npm run dev
 - Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
+
+## Live Deployments & Partner Integrations
+
+- **Cloud Review Dashboard (Render Web Service):** [https://airneet.onrender.com/dashboard](https://airneet.onrender.com/dashboard)
+- **Sync Webhook (Render API):** `POST https://airneet.onrender.com/api/sync`
+- **Partner Tech Used:** Hosted on **Render** (Node.js web service receiving offline sync payloads).
 
 ## Airplane Mode Verification Checklist
 
