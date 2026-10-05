@@ -1,4 +1,4 @@
-# ✈️ AirNEET (Offline Socratic RAG)
+# AirNEET (Offline Socratic RAG)
 
 > **Hacktoberfest 2026 • Challenge 1: Build for a Friend**  
 > **Mentee:** Sifat (NEET Medical Aspirant)  
@@ -7,7 +7,7 @@
 
 ---
 
-## 🌟 Executive Summary & Problem Definition
+## Executive Summary & Problem Definition
 
 Preparing for the **Indian National Eligibility cum Entrance Test (NEET)** requires memorizing thousands of NCERT lines across Physics, Chemistry, and Biology. However, modern studying faces three critical friction points:
 
@@ -16,7 +16,9 @@ Preparing for the **Indian National Eligibility cum Entrance Test (NEET)** requi
 3. **Hallucination Risk:** Generative AI often hallucinates facts, which is fatal in NEET's strict negative-marking scheme (-1 mark per incorrect answer).
 
 ### The Solution:
+
 **AirNEET** is a 100% offline desktop web app designed for **Airplane Mode**. It combines:
+
 - **Local RAG Pipeline:** Embedding and retrieval powered by local `nomic-embed-text` strictly bounded to NCERT textbooks.
 - **Strict Socratic Tutoring:** Never spoon-feeds answers; provides ONE conceptual clue and ONE diagnostic test question.
 - **Offline Filesystem Persistence:** Automatically logs session metrics and weak concepts to `./data/study_log.json`.
@@ -25,7 +27,7 @@ Preparing for the **Indian National Eligibility cum Entrance Test (NEET)** requi
 
 ---
 
-## 🏗️ Architecture & Data Flow
+## Architecture & Data Flow
 
 ```
 [ AIRPLANE MODE - LOCAL MACHINE ]
@@ -60,7 +62,7 @@ Preparing for the **Indian National Eligibility cum Entrance Test (NEET)** requi
 
 ---
 
-## 📁 Folder Architecture
+## Folder Architecture
 
 ```text
 neet-airplane-tutor/
@@ -107,7 +109,7 @@ neet-airplane-tutor/
 
 ---
 
-## ⚡ Quickstart Guide
+## Quickstart Guide
 
 ### Step 1: Ensure Ollama is Running & Pull Local Models
 
@@ -126,12 +128,14 @@ ollama pull llama3.2
 ### Step 2: Install Dependencies
 
 #### Client:
+
 ```bash
 cd client
 npm install --legacy-peer-deps
 ```
 
 #### Server:
+
 ```bash
 cd server
 npm install
@@ -139,7 +143,7 @@ npm install
 
 ---
 
-## 📖 NCERT Document Ingestion
+## NCERT Document Ingestion
 
 To chunk and vectorize the active NCERT chapter (`ch09_biomolecules.txt`) using local `nomic-embed-text`:
 
@@ -149,51 +153,56 @@ npm run ingest
 ```
 
 Expected output:
+
 ```text
 ====================================================
-📖 AirNEET - NCERT Offline Document Ingestion
+ AirNEET - NCERT Offline Document Ingestion
 ====================================================
 [INGEST] Created 47 chunks from single active chapter: ch09_biomolecules.txt
 [INGEST] Generating embeddings via 'nomic-embed-text'...
 [INGEST] Embedded 10/47 chunks...
 ...
 [INGEST] Successfully serialized vector store to client/data/vector_store/index.json
-✅ Ingestion Complete!
-📦 Processed Files: ch09_biomolecules.txt
-🧩 Total Chunks Indexed: 47
+ Ingestion Complete!
+ Processed Files: ch09_biomolecules.txt
+ Total Chunks Indexed: 47
 ```
 
 ---
 
-## 🚀 Running Locally
+## Running Locally
 
 ### 1. Start the Express Review Server (Port 4000)
+
 ```bash
 cd server
 npm run dev
 ```
-* **Review Dashboard:** [http://localhost:4000/dashboard](http://localhost:4000/dashboard)
-* **Sync Endpoint:** `POST http://localhost:4000/api/sync`
-* **Health Check:** [http://localhost:4000/health](http://localhost:4000/health)
+
+- **Review Dashboard:** [http://localhost:4000/dashboard](http://localhost:4000/dashboard)
+- **Sync Endpoint:** `POST http://localhost:4000/api/sync`
+- **Health Check:** [http://localhost:4000/health](http://localhost:4000/health)
 
 ### 2. Start the Next.js Offline Client (Port 3000)
+
 ```bash
 cd client
 npm run dev
 ```
-* Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+- Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 📴 Airplane Mode Verification Checklist
+## Airplane Mode Verification Checklist
 
 Follow these steps to verify 100% offline functionality:
 
 1. [x] **Disable Wi-Fi / Enable Airplane Mode** on your operating system.
 2. [x] Open [http://localhost:3000](http://localhost:3000). Notice the status badge switches to:
-   `Airplane Mode Safe: Offline RAG & Inference Active` and `Wi-Fi Disabled (Distraction-Free)`.
+       `Airplane Mode Safe: Offline RAG & Inference Active` and `Wi-Fi Disabled (Distraction-Free)`.
 3. [x] In the chat, ask:
-   > *"Why is the plasma membrane called quasi-fluid?"*
+   > _"Why is the plasma membrane called quasi-fluid?"_
 4. [x] Verify the response:
    - Does **NOT** give the complete answer directly.
    - Supplies a concise conceptual clue regarding Singer and Nicolson's 1972 model.
@@ -208,7 +217,7 @@ Follow these steps to verify 100% offline functionality:
 
 ---
 
-## 📊 Data Schema (`study_log.json`)
+## Data Schema (`study_log.json`)
 
 ```json
 {
@@ -239,7 +248,7 @@ Follow these steps to verify 100% offline functionality:
 
 ---
 
-## ☁️ Deploying `/server` to Render
+## Deploying `/server` to Render
 
 The Express server includes a `Procfile` and is configured for one-click deployment to **Render**:
 
