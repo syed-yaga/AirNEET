@@ -247,17 +247,3 @@ Follow these steps to verify 100% offline functionality:
 ```
 
 ---
-
-## Deploying `/server` to Render
-
-The Express server includes a `Procfile` and is configured for one-click deployment to **Render**:
-
-1. Push this repository to GitHub.
-2. In the Render Dashboard, create a **New Web Service**.
-3. Set the Root Directory to `server`.
-4. Configure:
-   - **Environment:** `Node`
-   - **Build Command:** `npm install && npm run build`
-   - **Start Command:** `npm start`
-5. Click **Deploy Web Service**.
-6. Access your live brother dashboard at `https://your-service.onrender.com/dashboard`!
