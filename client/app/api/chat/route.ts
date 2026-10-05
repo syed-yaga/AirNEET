@@ -43,15 +43,31 @@ export async function POST(req: Request) {
         "NCERT Class 11 Biology Chapter 9: Biomolecules",
     );
 
-    const systemPrompt = `You are a strict Socratic tutor for NEET (Indian National Eligibility cum Entrance Test). Your knowledge is strictly constrained to the official NCERT context provided below.
-Rule 1: NEVER give the final answer or write long paragraphs.
-Rule 2: Give only ONE concise conceptual hint based on the NCERT excerpt, then ask a targeted diagnostic question to test the student.
-Rule 3: If the concept is not found in the NCERT context, state: "That concept is not in your current NCERT chapter scope."
-Rule 4: Focus strictly on high-yield NEET facts (scientist names, years, exceptions, exact NCERT terminology).
-Rule 5: Always end your response with a citation tag in brackets, e.g. [${primaryCitation}].
+    const systemPrompt = `You are AirNEET, a strict Socratic tutor for NEET medical aspirants.
+Under NO circumstances should you give the complete direct answer.
 
-CRITICAL: Do NOT explain the answer directly. Never state the full definition.
-Give ONE conceptual clue from the NCERT text, then ask a question that forces the student to deduce the reason.
+You must structure your response EXACTLY using the following format:
+
+### Conceptual Clue:
+<Provide ONE concise conceptual hint based on the retrieved NCERT context. Do not solve the question or give the full answer; trigger memory.>
+
+### Diagnostic Question:
+<Ask ONE targeted diagnostic question that forces active recall of the missing component or mechanism.>
+
+Grounded in NCERT: ${primaryCitation}
+
+Rules:
+1. NEVER output a single unformatted paragraph. You MUST prepend the exact labels "### Conceptual Clue:" and "### Diagnostic Question:" before each respective section.
+2. If the concept is not found in the NCERT context, respond strictly with:
+### Conceptual Clue:
+That concept is not in your current NCERT chapter scope.
+
+### Diagnostic Question:
+Which topic from Chapter 9 (Biomolecules) would you like to review instead?
+
+Grounded in NCERT: ${primaryCitation}
+3. Focus strictly on high-yield NEET facts (scientist names, years, exceptions, exact NCERT terminology).
+4. Keep each section concise (1-2 sentences maximum). Never spoon-feed.
 
 Subject: ${subject || "Biology (Class 11)"}
 Chapter Scope: ${chapter || "Ch 9: Biomolecules"}
@@ -195,35 +211,38 @@ function generateLocalSocraticFallback(
 ): string {
   const q = query.toLowerCase();
 
+  let clue = "";
+  let question = "";
+
   if (docs.length === 0) {
-    return `That concept is not in your current NCERT chapter scope. Which section of Chapter 9 (Biomolecules) would you like to review? [${citation}]`;
+    clue = "That concept is not in your current NCERT chapter scope.";
+    question = "Which specific section of Chapter 9 (Biomolecules) would you like to review instead?";
+  } else if (q.includes("nucleoside") || q.includes("nucleotide") || q.includes("phosphate") || q.includes("nitrogenous base")) {
+    clue = "A nucleotide consists of a nitrogenous base, a pentose sugar, and a phosphate group. When the phosphate is absent, the compound is called a nucleoside.";
+    question = "Which specific bond links the phosphate group to the 5'-hydroxyl group of the nucleoside sugar to form a nucleotide?";
+  } else if (q.includes("amino acid") || q.includes("zwitterion") || q.includes("glycine") || q.includes("alanine") || q.includes("serine")) {
+    clue = "Amino acids are substituted methanes possessing four substituent groups: hydrogen, carboxyl group, amino group, and a variable R group.";
+    question = "At which specific pH does an amino acid simultaneously carry both positive and negative ionic charges to form a zwitterion?";
+  } else if (q.includes("inhibit") || q.includes("malonate") || q.includes("succin") || q.includes("enzyme") || q.includes("km") || q.includes("vmax")) {
+    clue = "Malonate closely resembles the substrate succinate in its molecular structure and competitively inhibits succinic dehydrogenase.";
+    question = "In competitive enzyme inhibition, does the inhibitor change the maximum velocity (Vmax), or does it solely increase the Michaelis constant (Km)?";
+  } else if (q.includes("peptide") || q.includes("bond") || q.includes("dehydration") || q.includes("glycosidic") || q.includes("phosphodiester")) {
+    clue = "A peptide bond forms when the carboxyl group (-COOH) of one amino acid reacts with the amino group (-NH2) of the next via elimination of a water molecule.";
+    question = "Which specific chemical reaction mechanism accounts for the formation of peptide, glycosidic, and phosphodiester bonds?";
+  } else if (q.includes("starch") || q.includes("cellulose") || q.includes("iodine") || q.includes("chitin") || q.includes("glycogen") || q.includes("inulin")) {
+    clue = "Starch forms helical secondary structures that can hold iodine molecules (I2) in its interior, whereas cellulose lacks complex helices.";
+    question = "What structural difference prevents cellulose from trapping iodine molecules to produce a blue coloration?";
+  } else if (q.includes("dna") || q.includes("watson") || q.includes("crick") || q.includes("pitch") || q.includes("purine") || q.includes("pyrimidine")) {
+    clue = "In the Watson-Crick B-DNA double helix model, the pitch of each full turn is 3.4 nm and contains approximately 10 base pairs.";
+    question = "How many hydrogen bonds form specifically between Guanine and Cytosine compared to Adenine and Thymine?";
+  } else if (q.includes("co-factor") || q.includes("prosthetic") || q.includes("coenzyme") || q.includes("apoenzyme") || q.includes("haem") || q.includes("nad")) {
+    clue = "Co-factors are non-protein constituents bound to an enzyme (apoenzyme) to make it catalytically active. They are categorized as prosthetic groups, co-enzymes, or metal ions.";
+    question = "Which type of co-factor is tightly and permanently bound to the apoenzyme, such as haem in peroxidase and catalase?";
+  } else {
+    const snippet = docs[0]?.chunk.text.split(".")[0] || "NCERT Class 11 Chapter 9 details cellular biomolecules";
+    clue = `NCERT states regarding this concept: "${snippet}".`;
+    question = "Based on this principle, how would you deduce the functional consequence during cellular processes?";
   }
 
-  if (q.includes("amino acid") || q.includes("zwitterion") || q.includes("glycine") || q.includes("alanine") || q.includes("serine")) {
-    return `Consider the substituted methane structure of alpha-amino acids. At which specific pH does an amino acid simultaneously carry both positive and negative charges without a net charge? [${citation}]`;
-  }
-
-  if (q.includes("inhibit") || q.includes("malonate") || q.includes("succin") || q.includes("enzyme") || q.includes("km") || q.includes("vmax")) {
-    return `Recall how malonate acts as a competitive inhibitor of succinic dehydrogenase by closely mimicking succinate. Does competitive inhibition alter the maximum velocity (Vmax), or does it solely increase the Michaelis constant (Km)? [${citation}]`;
-  }
-
-  if (q.includes("peptide") || q.includes("bond") || q.includes("dehydration") || q.includes("glycosidic") || q.includes("phosphodiester")) {
-    return `Think about polymerisation in biological macromolecules. Which functional group of one monomer reacts with which group of the next with the elimination of a water molecule? [${citation}]`;
-  }
-
-  if (q.includes("starch") || q.includes("cellulose") || q.includes("iodine") || q.includes("chitin") || q.includes("glycogen") || q.includes("inulin")) {
-    return `Consider the secondary helical structure of polysaccharides. Why can amylose in starch entrap iodine molecules to yield a blue colour, whereas cellulose cannot? [${citation}]`;
-  }
-
-  if (q.includes("dna") || q.includes("watson") || q.includes("crick") || q.includes("pitch") || q.includes("nucleotide") || q.includes("purine") || q.includes("pyrimidine")) {
-    return `Recall the Watson-Crick B-DNA double helix model. What is the pitch of one full turn (10 base pairs), and how many hydrogen bonds link Guanine to Cytosine? [${citation}]`;
-  }
-
-  if (q.includes("co-factor") || q.includes("prosthetic") || q.includes("coenzyme") || q.includes("apoenzyme") || q.includes("haem") || q.includes("nad")) {
-    return `Differentiate between tightly bound and transient enzyme components. What is the non-protein portion called, and which co-factor type does haem represent in catalase? [${citation}]`;
-  }
-
-  // General Socratic hint based on top chunk snippet
-  const snippet = docs[0].chunk.text.split(".")[0] || "the official NCERT text";
-  return `Consider what NCERT states regarding this biomolecule: "${snippet}". Based on this principle, how would you deduce the functional consequence during cellular processes? [${citation}]`;
+  return `### Conceptual Clue:\n${clue}\n\n### Diagnostic Question:\n${question}\n\nGrounded in NCERT: ${citation}`;
 }

@@ -28,6 +28,10 @@ export default function StudyPage() {
   const [saveSuccess, setSaveSuccess] = useState<string | null>(null);
   const [isSyncing, setIsSyncing] = useState<boolean>(false);
   const [syncSuccess, setSyncSuccess] = useState<string | null>(null);
+  const [syncStatus, setSyncStatus] = useState<{
+    type: 'success' | 'error';
+    message: string;
+  } | null>(null);
   const [isIngesting, setIsIngesting] = useState<boolean>(false);
 
   // Modals
@@ -167,7 +171,7 @@ export default function StudyPage() {
             ? {
                 ...m,
                 content:
-                  'Think about the three core components of a nucleic acid building block: a nitrogenous base, a pentose sugar, and a phosphate group. Which one of these is missing in a nucleoside? [NCERT Class 11 Biology, Chapter 9: Biomolecules]',
+                  '### Conceptual Clue:\nThink about the three core components of a nucleic acid building block: a nitrogenous base, a pentose sugar, and a phosphate group.\n\n### Diagnostic Question:\nWhich one of these components is absent in a nucleoside?\n\nGrounded in NCERT: Class 11 Biology, Chapter 9: Biomolecules',
                 source: 'NCERT Class 11 Biology, Chapter 9: Biomolecules',
               }
             : m
@@ -249,10 +253,11 @@ export default function StudyPage() {
     }
   };
 
-  // 3. Sync to Brother (Express server on Render or localhost:4000)
+  // 3. Sync to Brother (Express server on Render or configured endpoint)
   const handleSyncCloud = async () => {
     setIsSyncing(true);
     setSyncSuccess(null);
+    setSyncStatus(null);
 
     const payload = {
       studentName: 'Sifat',
@@ -272,31 +277,47 @@ export default function StudyPage() {
     };
 
     try {
-      // First save locally to disk
+      // 1. First save locally to disk so data is never lost offline
       await fetch('/api/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
 
-      // Then dispatch to Express backend (default http://localhost:4000/api/sync)
-      const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:4000';
-      const syncRes = await fetch(`${serverUrl}/api/sync`, {
+      // 2. Dispatch to live Render backend or configured endpoint
+      const SYNC_URL =
+        process.env.NEXT_PUBLIC_SYNC_URL || 'https://airneet.onrender.com/api/sync';
+
+      const response = await fetch(SYNC_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(payload),
       });
 
-      if (syncRes.ok) {
-        const result = await syncRes.json();
-        setSyncSuccess(`Synced to Brother's Dashboard! (${result.totalSynced} sessions)`);
-        setTimeout(() => setSyncSuccess(null), 5000);
-      } else {
-        setSyncSuccess('Server unreachable. Ensure /server is running on port 4000.');
+      if (!response.ok) {
+        throw new Error(`Sync failed with status: ${response.status}`);
       }
+
+      setSyncStatus({
+        type: 'success',
+        message: "Successfully synced with brother's review hub!",
+      });
+      setSyncSuccess("Successfully synced with brother's review hub!");
+      setTimeout(() => {
+        setSyncStatus(null);
+        setSyncSuccess(null);
+      }, 5000);
     } catch (err) {
       console.warn('Sync error:', err);
-      setSyncSuccess('Saved locally. Brother server offline (Wi-Fi off).');
+      setSyncStatus({
+        type: 'error',
+        message: 'Sync failed — check Wi-Fi connection.',
+      });
+      setTimeout(() => {
+        setSyncStatus(null);
+      }, 5000);
     } finally {
       setIsSyncing(false);
     }
@@ -344,6 +365,7 @@ export default function StudyPage() {
         isSyncing={isSyncing}
         isIngesting={isIngesting}
         syncSuccess={syncSuccess}
+        syncStatus={syncStatus}
         saveSuccess={saveSuccess}
         totalChunks={totalChunks}
       />

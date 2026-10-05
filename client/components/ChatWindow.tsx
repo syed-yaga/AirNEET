@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React, { useState, useRef, useEffect } from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
-import 'katex/dist/katex.min.css';
+import React, { useState, useRef, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css";
 import {
   Send,
   BookOpen,
@@ -15,12 +15,12 @@ import {
   CheckCircle2,
   AlertCircle,
   FileSearch,
-} from 'lucide-react';
-import { RetrievedSourceItem } from './RagReferenceModal';
+} from "lucide-react";
+import { RetrievedSourceItem } from "./RagReferenceModal";
 
 export interface Message {
   id: string;
-  role: 'user' | 'assistant' | 'system';
+  role: "user" | "assistant" | "system";
   content: string;
   source?: string;
   sources?: RetrievedSourceItem[];
@@ -31,7 +31,10 @@ interface ChatWindowProps {
   messages: Message[];
   onSendMessage: (text: string) => void;
   isStreaming: boolean;
-  onOpenSourcesModal: (sources: RetrievedSourceItem[], topicTitle: string) => void;
+  onOpenSourcesModal: (
+    sources: RetrievedSourceItem[],
+    topicTitle: string,
+  ) => void;
   currentChapter: string;
 }
 
@@ -42,21 +45,23 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
   onOpenSourcesModal,
   currentChapter,
 }) => {
-  const [inputText, setInputText] = useState('');
-  const [expandedSources, setExpandedSources] = useState<Record<string, boolean>>({});
+  const [inputText, setInputText] = useState("");
+  const [expandedSources, setExpandedSources] = useState<
+    Record<string, boolean>
+  >({});
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const quickPrompts = [
-    'What is the structural difference between a nucleoside and a nucleotide?',
-    'How does a peptide bond form between two amino acids?',
-    'How does competitive enzyme inhibition affect Km and Vmax?',
-    'Why does starch give blue color with I₂ but cellulose does not?',
-    'Explain the zwitterionic structure of amino acids',
-    'What was Watson and Crick’s 1953 B-DNA pitch and structure?',
+    "What is the structural difference between a nucleoside and a nucleotide?",
+    "How does a peptide bond form between two amino acids?",
+    "How does competitive enzyme inhibition affect Km and Vmax?",
+    "Why does starch give blue color with I₂ but cellulose does not?",
+    "Explain the zwitterionic structure of amino acids",
+    "What was Watson and Crick’s 1953 B-DNA pitch and structure?",
   ];
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isStreaming]);
 
   const toggleSourceAccordion = (msgId: string) => {
@@ -70,7 +75,7 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
     e.preventDefault();
     if (!inputText.trim() || isStreaming) return;
     onSendMessage(inputText.trim());
-    setInputText('');
+    setInputText("");
   };
 
   return (
@@ -88,7 +93,10 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
                 AirNEET — Offline Socratic Mentor
               </h2>
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                Welcome, Sifat! You are revising in 100% Airplane Mode. This AI will <strong>never give direct answers</strong>; instead, it provides strict NCERT hints and diagnostic questions to test your active recall.
+                Welcome, Sifat! You are revising in 100% Airplane Mode. This AI
+                will <strong>never give direct answers</strong>; instead, it
+                provides strict NCERT hints and diagnostic questions to test
+                your active recall.
               </p>
             </div>
 
@@ -100,15 +108,24 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
               <ul className="space-y-1.5 text-slate-400">
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                  <span><strong>Zero Spoon-Feeding:</strong> Only 1 conceptual clue + 1 diagnostic test question per turn.</span>
+                  <span>
+                    <strong>Zero Spoon-Feeding:</strong> Only 1 conceptual clue
+                    + 1 diagnostic test question per turn.
+                  </span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                  <span><strong>100% Grounded in NCERT:</strong> If it's not in the textbook, the tutor flags it as out-of-scope.</span>
+                  <span>
+                    <strong>100% Grounded in NCERT:</strong> If it's not in the
+                    textbook, the tutor flags it as out-of-scope.
+                  </span>
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                  <span><strong>Zero Cloud Leaks:</strong> Runs completely on local Ollama weights on your machine.</span>
+                  <span>
+                    <strong>Zero Cloud Leaks:</strong> Runs completely on local
+                    Ollama weights on your machine.
+                  </span>
                 </li>
               </ul>
             </div>
@@ -133,17 +150,18 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
           </div>
         ) : (
           messages.map((msg, index) => {
-            const isUser = msg.role === 'user';
+            const isUser = msg.role === "user";
             const isLatest = index === messages.length - 1;
             const sources = msg.sources || [];
-            const primaryCitation = msg.source || 'NCERT Class 11 Biology, Ch 8';
+            const primaryCitation =
+              msg.source || "NCERT Class 11 Biology, Chapter 9: Biomolecules";
             const isExpanded = expandedSources[msg.id];
 
             return (
               <div
                 key={msg.id}
                 className={`flex gap-3 sm:gap-4 max-w-3xl ${
-                  isUser ? 'ml-auto justify-end' : 'mr-auto justify-start'
+                  isUser ? "ml-auto justify-end" : "mr-auto justify-start"
                 }`}
               >
                 {!isUser && (
@@ -157,14 +175,76 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
                   <div
                     className={`rounded-2xl p-4 sm:p-5 text-sm leading-relaxed shadow-md ${
                       isUser
-                        ? 'bg-emerald-600 text-white rounded-tr-sm ml-auto'
-                        : 'bg-slate-900 border border-slate-800 text-slate-100 rounded-tl-sm'
+                        ? "bg-emerald-600 text-white rounded-tr-sm ml-auto"
+                        : "bg-slate-900 border border-slate-800 text-slate-100 rounded-tl-sm"
                     }`}
                   >
-                    <div className="prose prose-invert max-w-none text-xs sm:text-sm prose-p:my-1 prose-headings:my-2 prose-ul:my-1">
+                    <div className="prose prose-invert max-w-none text-xs sm:text-sm prose-p:my-1.5 prose-headings:my-2 prose-ul:my-1">
                       <ReactMarkdown
                         remarkPlugins={[remarkMath]}
                         rehypePlugins={[rehypeKatex]}
+                        components={{
+                          h3: ({ node, children, ...props }) => {
+                            const text = String(children);
+                            if (
+                              text.toLowerCase().includes("conceptual clue")
+                            ) {
+                              return (
+                                <div className="flex items-center gap-1.5 mt-2.5 mb-1 text-emerald-400 font-bold text-xs uppercase tracking-wider bg-emerald-950/60 border border-emerald-500/30 px-2.5 py-1 rounded-lg w-fit shadow-sm not-prose">
+                                  <span></span>
+                                  <span>Conceptual Clue:</span>
+                                </div>
+                              );
+                            }
+                            if (
+                              text.toLowerCase().includes("diagnostic question")
+                            ) {
+                              return (
+                                <div className="flex items-center gap-1.5 mt-3.5 mb-1 text-amber-400 font-bold text-xs uppercase tracking-wider bg-amber-950/60 border border-amber-500/30 px-2.5 py-1 rounded-lg w-fit shadow-sm not-prose">
+                                  <span></span>
+                                  <span>Diagnostic Question:</span>
+                                </div>
+                              );
+                            }
+                            return (
+                              <h3
+                                className="text-sm font-bold text-slate-200 mt-2 mb-1"
+                                {...props}
+                              >
+                                {children}
+                              </h3>
+                            );
+                          },
+                          strong: ({ node, children, ...props }) => {
+                            const text = String(children);
+                            if (
+                              text.toLowerCase().includes("conceptual clue")
+                            ) {
+                              return (
+                                <span className="inline-flex items-center gap-1 text-emerald-400 font-bold text-xs uppercase tracking-wider bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded-md mr-1.5 not-prose">
+                                  💡 Conceptual Clue:
+                                </span>
+                              );
+                            }
+                            if (
+                              text.toLowerCase().includes("diagnostic question")
+                            ) {
+                              return (
+                                <span className="inline-flex items-center gap-1 text-amber-400 font-bold text-xs uppercase tracking-wider bg-amber-950/60 border border-amber-500/30 px-2 py-0.5 rounded-md mr-1.5 not-prose">
+                                  🎯 Diagnostic Question:
+                                </span>
+                              );
+                            }
+                            return (
+                              <strong
+                                className="font-semibold text-slate-100"
+                                {...props}
+                              >
+                                {children}
+                              </strong>
+                            );
+                          },
+                        }}
                       >
                         {msg.content}
                       </ReactMarkdown>
@@ -181,7 +261,10 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
                         <div className="flex items-center gap-2 truncate">
                           <BookOpen className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
                           <span className="font-medium truncate">
-                            Grounded in NCERT: <span className="text-emerald-300 font-semibold">{primaryCitation}</span>
+                            Grounded in NCERT:{" "}
+                            <span className="text-emerald-300 font-semibold">
+                              {primaryCitation}
+                            </span>
                           </span>
                         </div>
                         <div className="flex items-center gap-1.5 flex-shrink-0 text-[11px] text-slate-500">
@@ -217,7 +300,8 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
                             ))
                           ) : (
                             <div className="text-[11px] text-slate-400 italic">
-                              Anchored to NCERT Class 11 Biology, Chapter 9: Biomolecules.
+                              Anchored to NCERT Class 11 Biology, Chapter 9:
+                              Biomolecules.
                             </div>
                           )}
 
@@ -228,7 +312,8 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
                             className="inline-flex items-center gap-1.5 text-[11px] text-emerald-400 hover:text-emerald-300 font-medium pt-1"
                           >
                             <FileSearch className="w-3.5 h-3.5" />
-                            Inspect Full NCERT Excerpt Texts &amp; Similarity Details
+                            Inspect Full NCERT Excerpt Texts &amp; Similarity
+                            Details
                           </button>
                         </div>
                       )}
@@ -249,7 +334,9 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
         {isStreaming && (
           <div className="flex items-center gap-3 text-xs text-slate-400 pl-2 animate-pulse">
             <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
-            <span>Ollama llama3.2 is synthesizing Socratic clue from NCERT...</span>
+            <span>
+              Ollama llama3.2 is synthesizing Socratic clue from NCERT...
+            </span>
           </div>
         )}
 
@@ -258,7 +345,10 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
 
       {/* Input Area */}
       <div className="p-4 sm:p-5 border-t border-slate-800 bg-slate-900/80 backdrop-blur">
-        <form onSubmit={handleSubmit} className="max-w-3xl mx-auto relative flex items-center">
+        <form
+          onSubmit={handleSubmit}
+          className="max-w-3xl mx-auto relative flex items-center"
+        >
           <input
             type="text"
             value={inputText}
@@ -277,7 +367,8 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
           </button>
         </form>
         <p className="max-w-3xl mx-auto text-center text-[11px] text-slate-500 mt-2">
-          AirNEET • Strict Socratic Mentor • Offline Inference via Ollama (llama3.2 + nomic-embed-text) • 100% Distraction Free
+          AirNEET • Strict Socratic Mentor • Offline Inference via Ollama
+          (llama3.2 + nomic-embed-text) • 100% Distraction Free
         </p>
       </div>
     </div>

@@ -25,6 +25,7 @@ interface SidebarProps {
   isSyncing: boolean;
   isIngesting: boolean;
   syncSuccess: string | null;
+  syncStatus?: { type: 'success' | 'error'; message: string } | null;
   saveSuccess: string | null;
   totalChunks: number;
 }
@@ -42,6 +43,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   isSyncing,
   isIngesting,
   syncSuccess,
+  syncStatus,
   saveSuccess,
   totalChunks,
 }) => {
@@ -263,16 +265,33 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <button
             onClick={onSyncCloud}
             disabled={isSyncing}
-            className="w-full flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold text-xs transition shadow-md shadow-emerald-500/10"
+            className={`w-full flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl font-semibold text-xs transition shadow-md ${
+              syncStatus?.type === 'success'
+                ? 'bg-emerald-600 text-white shadow-emerald-500/20'
+                : syncStatus?.type === 'error'
+                ? 'bg-rose-600 text-white shadow-rose-500/20'
+                : 'bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-emerald-500/10'
+            }`}
           >
             <CloudUpload className={`w-3.5 h-3.5 ${isSyncing ? 'animate-bounce' : ''}`} />
             <span>{isSyncing ? 'Syncing to Cloud...' : 'Sync to Brother (Online)'}</span>
           </button>
-          {syncSuccess && (
+          {syncStatus ? (
+            <div
+              className={`p-2 rounded-xl text-[11px] text-center font-medium transition animate-in fade-in flex items-center justify-center gap-1.5 ${
+                syncStatus.type === 'success'
+                  ? 'bg-emerald-950/80 border border-emerald-500/40 text-emerald-300'
+                  : 'bg-rose-950/80 border border-rose-500/40 text-rose-300'
+              }`}
+            >
+              <span>{syncStatus.type === 'success' ? '✓' : '⚠️'}</span>
+              <span>{syncStatus.message}</span>
+            </div>
+          ) : syncSuccess ? (
             <p className="text-[11px] text-emerald-300 text-center animate-in fade-in">
               ✓ {syncSuccess}
             </p>
-          )}
+          ) : null}
 
           {/* Re-Ingest NCERT Docs */}
           <button
@@ -289,12 +308,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Review Hub Quick Link (Pinned at bottom) */}
       <div className="p-4 border-t border-slate-800 bg-slate-950/80 flex-shrink-0">
         <a
-          href="http://localhost:4000/dashboard"
+          href={
+            process.env.NEXT_PUBLIC_DASHBOARD_URL ||
+            (process.env.NEXT_PUBLIC_SYNC_URL
+              ? process.env.NEXT_PUBLIC_SYNC_URL.replace(/\/api\/sync\/?$/, '/dashboard')
+              : 'https://airneet.onrender.com/dashboard')
+          }
           target="_blank"
           rel="noreferrer"
           className="flex items-center justify-between text-xs text-slate-400 hover:text-emerald-400 transition"
         >
-          <span>Open Brother's Review Hub</span>
+          <span>Open Brother&apos;s Review Hub</span>
           <ExternalLink className="w-3.5 h-3.5" />
         </a>
       </div>
