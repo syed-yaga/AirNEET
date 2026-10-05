@@ -1,7 +1,6 @@
 {
   "name": "airneet-server",
   "version": "1.0.0",
-  "type": "module",
   "description": "Express TypeScript cloud receiver and brother review dashboard for AirNEET (Render ready)",
   "main": "dist/index.js",
   "scripts": {
