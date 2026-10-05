@@ -47,12 +47,12 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const quickPrompts = [
+    'What is the structural difference between a nucleoside and a nucleotide?',
+    'How does a peptide bond form between two amino acids?',
+    'How does competitive enzyme inhibition affect Km and Vmax?',
     'Why does starch give blue color with I₂ but cellulose does not?',
     'Explain the zwitterionic structure of amino acids',
-    'How does competitive inhibition affect Km and Vmax?',
     'What was Watson and Crick’s 1953 B-DNA pitch and structure?',
-    'Differentiate primary, secondary, tertiary, and quaternary protein structures',
-    'What is the difference between prosthetic groups and co-enzymes?',
   ];
 
   useEffect(() => {
@@ -217,7 +217,7 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
                             ))
                           ) : (
                             <div className="text-[11px] text-slate-400 italic">
-                              Anchored to NCERT Class 11 Biology, Chapter 8 ("Cell: The Unit of Life").
+                              Anchored to NCERT Class 11 Biology, Chapter 9: Biomolecules.
                             </div>
                           )}
 
@@ -263,7 +263,7 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
             type="text"
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
-            placeholder="Ask a NEET doubt (e.g., 'Why is cell membrane called quasi-fluid?')..."
+            placeholder="Ask a Biomolecules doubt (e.g., 'What is the difference between a nucleoside and a nucleotide?')..."
             disabled={isStreaming}
             className="w-full pl-4 pr-12 py-3.5 rounded-2xl bg-slate-950 border border-slate-800 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 text-sm text-slate-100 placeholder:text-slate-500 outline-none transition disabled:opacity-60 shadow-inner"
           />

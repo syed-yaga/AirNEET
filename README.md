@@ -202,12 +202,12 @@ Follow these steps to verify 100% offline functionality:
 2. [x] Open [http://localhost:3000](http://localhost:3000). Notice the status badge switches to:
        `Airplane Mode Safe: Offline RAG & Inference Active` and `Wi-Fi Disabled (Distraction-Free)`.
 3. [x] In the chat, ask:
-   > _"Why is the plasma membrane called quasi-fluid?"_
+   > _"What is the structural difference between a nucleoside and a nucleotide?"_
 4. [x] Verify the response:
    - Does **NOT** give the complete answer directly.
-   - Supplies a concise conceptual clue regarding Singer and Nicolson's 1972 model.
-   - Poses a diagnostic test question (e.g. asking which component moves laterally).
-   - Shows the expandable accordion: `Grounded in NCERT: NCERT Biology Ch 8, p. 131`.
+   - Supplies a concise conceptual clue focusing on the addition of the phosphate group to the nitrogenous base and pentose sugar.
+   - Poses a diagnostic test question (e.g., asking which specific bond links the phosphate group to the sugar molecule).
+   - Shows the expandable accordion: `Grounded in NCERT: Class 11 Biology - Chapter 9: Biomolecules`.
 5. [x] Click **"Inspect Full NCERT Excerpts"**: Inspect the exact matched textbook chunks, similarity scores, and citations.
 6. [x] Click **"Save Session (Offline)"**: Verify that `client/data/study_log.json` is generated locally.
 7. [x] Click **"Roast My Mistakes"**: Receive a playful sibling roast and high-yield NEET mnemonics.
@@ -222,25 +222,25 @@ Follow these steps to verify 100% offline functionality:
 ```json
 {
   "studentName": "Sifat",
-  "timestamp": "2026-10-03T18:15:00.000Z",
+  "timestamp": "2026-10-05T08:30:00.000Z",
   "subject": "Biology - Class 11",
-  "chapter": "Cell: The Unit of Life",
+  "chapter": "Chapter 9: Biomolecules",
   "metrics": {
     "totalInteractions": 12,
     "weakTopicsIdentified": [
-      "Fluid Mosaic Model lipid bilayer symmetry",
-      "Endomembrane system components"
+      "Phosphodiester bond linkage positions",
+      "Competitive enzyme inhibition kinetics"
     ]
   },
   "rawHistory": [
     {
       "role": "user",
-      "content": "Why is the plasma membrane called quasi-fluid?"
+      "content": "What is the structural difference between a nucleoside and a nucleotide?"
     },
     {
       "role": "assistant",
-      "content": "Think about the lipid bilayer. What component moves laterally within it to provide flexibility?",
-      "source": "NCERT Biology Ch 8, p. 131"
+      "content": "Think about the three core components of a nucleic acid building block: a nitrogenous base, a pentose sugar, and a phosphate group. Which one of these is missing in a nucleoside?",
+      "source": "NCERT Class 11 Biology, Chapter 9: Biomolecules"
     }
   ]
 }

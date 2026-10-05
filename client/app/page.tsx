@@ -167,8 +167,8 @@ export default function StudyPage() {
             ? {
                 ...m,
                 content:
-                  'Think about the lipid bilayer described in NCERT Class 11 Chapter 8. What component moves laterally to provide quasi-fluidity? [NCERT Biology Ch 8, p. 131]',
-                source: 'NCERT Biology Ch 8, p. 131',
+                  'Think about the three core components of a nucleic acid building block: a nitrogenous base, a pentose sugar, and a phosphate group. Which one of these is missing in a nucleoside? [NCERT Class 11 Biology, Chapter 9: Biomolecules]',
+                source: 'NCERT Class 11 Biology, Chapter 9: Biomolecules',
               }
             : m
         )
