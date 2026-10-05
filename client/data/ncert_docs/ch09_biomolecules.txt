@@ -1,0 +1,146 @@
+NCERT CLASS 11 BIOLOGY - CHAPTER 9: BIOMOLECULES
+
+--- SECTION 9.1: HOW TO ANALYSE CHEMICAL COMPOSITION? ---
+[NCERT Biology Ch 9, p. 142-143]
+To analyse the chemical composition of living tissues (a piece of vegetable or a piece of liver), we grind it in trichloroacetic acid (Cl3CCOOH) using a mortar and a pestle. We obtain a thick slurry. When we strain this through a cheesecloth or cotton, we obtain two fractions:
+1. The filtrate or the acid-soluble pool.
+2. The retentate or the acid-insoluble fraction (pellet).
+The acid-soluble pool contains thousands of organic compounds with molecular weights ranging from 18 to around 800 Daltons (Da). These represent the biomicromolecules.
+The acid-insoluble fraction has only four types of organic compounds: proteins, nucleic acids, polysaccharides and lipids. Except for lipids, these molecules have molecular weights in the range of ten thousand Daltons and above, and are called biomacromolecules.
+Lipids have molecular weights not exceeding 800 Da, yet they come under the acid-insoluble fraction because during tissue disruption, cell membranes and other membranes are broken into pieces and form vesicles which are not water-soluble and get separated along with the acid-insoluble pellet. Lipids are strictly not macromolecules.
+The acid-soluble pool represents roughly the cytoplasmic composition, while the acid-insoluble fraction represents the macromolecules of the cytoplasm and organelles.
+
+--- SECTION 9.2: PRIMARY AND SECONDARY METABOLITES ---
+[NCERT Biology Ch 9, p. 144]
+Primary metabolites have identifiable functions and play known roles in normal physiological processes (e.g., amino acids, sugars, nitrogen bases, lipids).
+Secondary metabolites are produced by plants, fungi, and microbes, and their direct ecological or physiological functions in host organisms are not always clear, but many are useful to human welfare:
+- Pigments: Carotenoids, Anthocyanins.
+- Alkaloids: Morphine, Codeine.
+- Terpenoids: Monoterpenes, Diterpenes.
+- Essential oils: Lemon grass oil.
+- Toxins: Abrin, Ricin.
+- Lectins: Concanavalin A.
+- Drugs: Vinblastin, Curcumin.
+- Polymeric substances: Rubber, Gums, Cellulose.
+
+--- SECTION 9.3: AMINO ACIDS ---
+[NCERT Biology Ch 9, p. 143-145]
+Amino acids are organic compounds containing an amino group (-NH2) and an acidic group (-COOH) as substituents on the same carbon, i.e., the alpha-carbon. Hence, they are called alpha-amino acids. They are substituted methanes.
+There are four substituent groups occupying the four valency positions: hydrogen, carboxyl group, amino group and a variable group designated as R group.
+Based on nature of R group:
+1. Glycine: R group is Hydrogen (H). Glycine is the simplest amino acid and is optically inactive.
+2. Alanine: R group is a methyl group (-CH3).
+3. Serine: R group is a hydroxy-methyl group (-CH2OH).
+There are 20 types of amino acids occurring in proteins.
+Based on the number of amino and carboxyl groups:
+- Acidic amino acids: Glutamic acid, Aspartic acid (have extra -COOH group).
+- Basic amino acids: Lysine, Arginine (have extra -NH2 group).
+- Neutral amino acids: Valine, Glycine, Alanine.
+- Aromatic amino acids: Tyrosine, Phenylalanine, Tryptophan.
+A particular property of amino acids is the ionizable nature of -NH2 and -COOH groups. Hence, in solutions of different pH, the structure of amino acids changes. At a specific pH (isoelectric point), the amino acid carries both positive and negative charges simultaneously without net charge, known as the Zwitterionic form.
+
+--- SECTION 9.4: LIPIDS ---
+[NCERT Biology Ch 9, p. 144-145]
+Lipids are generally water insoluble. They could be simple fatty acids. A fatty acid has a carboxyl group attached to an R group. The R group could be a methyl (-CH3), or ethyl (-C2H5) or higher number of -CH2 groups (1 carbon to 19 carbons).
+- Palmitic acid has 16 carbons including the carboxyl carbon.
+- Arachidonic acid has 20 carbon atoms including the carboxyl carbon.
+Fatty acids could be saturated (without double bonds) or unsaturated (with one or more C=C double bonds).
+Another simple lipid is glycerol which is trihydroxy propane (propane-1,2,3-triol).
+Many lipids have both glycerol and fatty acids esterified. Here the fatty acids are found esterified with glycerol. They can be monoglycerides, diglycerides and triglycerides. These are also called fats and oils based on melting point. Oils have lower melting point (e.g., gingelly oil) and hence remain as oil in winters.
+Phospholipids have phosphorus and a phosphorylated organic group in them. They are found in cell membranes. Lecithin is a prominent example of phospholipid found in plasma membranes.
+Some tissues, especially neural tissues, have lipids with more complex structures.
+
+--- SECTION 9.5: NUCLEIC ACIDS AND NITROGEN BASES ---
+[NCERT Biology Ch 9, p. 145-146]
+Living organisms have a number of carbon compounds in which heterocyclic rings are found. Some of these are nitrogenous bases: adenine, guanine, cytosine, uracil, and thymine.
+Adenine and Guanine are substituted purines (double-ring).
+Cytosine, Uracil, and Thymine are substituted pyrimidines (single-ring).
+When attached to a pentose sugar (ribose or deoxyribose), they are called nucleosides:
+- Adenosine, Guanosine, Thymidine, Uridine, Cytidine.
+When a phosphate group is also found esterified to the sugar, they are called nucleotides:
+- Adenylic acid, Guanylic acid, Thymidylic acid, Uridylic acid, Cytidylic acid.
+Nucleic acids like DNA (deoxyribonucleic acid) and RNA (ribonucleic acid) consist of nucleotides only. Nucleic acids are the genetic material of organisms.
+
+--- SECTION 9.6: POLYSACCHARIDES (CARBOHYDRATES) ---
+[NCERT Biology Ch 9, p. 148-149]
+The acid insoluble pellet also has polysaccharides (carbohydrates) as a category of macromolecules. Polysaccharides are long chains of sugars (monosaccharides). They are threads containing different monosaccharides as building blocks.
+- Cellulose is a polymeric polysaccharide consisting of only one type of monosaccharide; i.e., glucose. Cellulose is a homopolymer. Plant cell walls are made of cellulose. Paper made from plant pulp and cotton fibre is cellulosic.
+- Starch is a variant of this but present as a store house of energy in plant tissues. Animals have another variant called glycogen.
+- Inulin is a polymer of fructose.
+In a polysaccharide chain (say glycogen), the right end is called the reducing end and the left end is called the non-reducing end.
+Starch forms helical secondary structures. In fact, starch can hold iodine molecules (I2) in the helical portion. The starch-I2 is blue in colour. Cellulose does not contain complex helices and hence cannot hold I2 (does not give blue colour with iodine).
+Exoskeletons of arthropods have a complex polysaccharide called chitin. These complex polysaccharides are mostly homopolymers of N-acetyl glucosamine.
+
+--- SECTION 9.7: STRUCTURE OF PROTEINS ---
+[NCERT Biology Ch 9, p. 149-151]
+Proteins are heteropolymers and not homopolymers. A homopolymer has only one type of monomer repeating 'n' number of times. There are 20 amino acids, so proteins are polymers of amino acids.
+Protein structure is described at four levels:
+1. Primary structure: The sequence of amino acids, i.e., the positional information in a protein (which is the first, second, etc.). The first amino acid is also called the N-terminal amino acid (left end). The last amino acid is called the C-terminal amino acid (right end).
+2. Secondary structure: The thread is folded in the form of a helix (similar to a revolving staircase). In proteins, only right-handed helices are observed. Another form is the beta-pleated sheet.
+3. Tertiary structure: The long protein chain is also folded upon itself like a hollow woolen ball, giving rise to the tertiary structure. This gives a 3-dimensional view of a protein. Tertiary structure is absolutely necessary for the biological activities of proteins (such as active sites of enzymes).
+4. Quaternary structure: Some proteins are an assembly of more than one polypeptide or subunits. The manner in which these individual folded polypeptides are arranged with respect to each other (e.g. linear string of spheres, cubes) is the quaternary structure.
+Adult human hemoglobin consists of 4 subunits. Two of these are identical to each other: two alpha subunits (alpha type) and two beta subunits (beta type), forming an alpha2-beta2 tetramer.
+
+--- SECTION 9.8: NATURE OF BONDS LINKING MONOMERS IN A POLYMER ---
+[NCERT Biology Ch 9, p. 151]
+In a polypeptide or protein, amino acids are linked by a peptide bond. A peptide bond is formed when the carboxyl group (-COOH) of one amino acid reacts with the amino group (-NH2) of the next amino acid with the elimination of a water molecule (dehydration).
+In a polysaccharide, the individual monosaccharides are linked by a glycosidic bond. This bond is also formed by dehydration. This bond is formed between two carbon atoms of two adjacent monosaccharides.
+In a nucleic acid, a phosphate moiety links the 3'-carbon of one sugar of one nucleotide to the 5'-carbon of the sugar of the succeeding nucleotide. The bond between the phosphate and hydroxyl group of sugar is an ester bond. As there is one such ester bond on either side, it is called a phosphodiester bond.
+
+--- SECTION 9.9: THE B-DNA DOUBLE HELIX MODEL ---
+[NCERT Biology Ch 9, p. 151-152]
+James Watson and Francis Crick (1953) proposed the famous double helix model of B-DNA based on X-ray diffraction data produced by Rosalind Franklin and Maurice Wilkins:
+1. DNA exists as a double helix. The two polynucleotide chains run antiparallel, i.e., one strand runs in 5' to 3' direction, while the other runs in 3' to 5' direction.
+2. The backbone is formed by the sugar-phosphate-sugar chain.
+3. The nitrogen bases are projected more or less perpendicular to this backbone but face inside.
+4. A and G of one strand base pair with T and C, respectively, on the other strand.
+5. Between A and T, there are two hydrogen bonds (A = T). Between G and C, there are three hydrogen bonds (G = C).
+6. One full turn of the helical strand involves 10 base pairs (10 bp).
+7. The pitch of the helix is 3.4 nm (34 Angstroms).
+8. The distance between two consecutive base pairs is roughly 0.34 nm (3.4 Angstroms).
+
+--- SECTION 9.10: ENZYMES AND CATALYTIC ACTION ---
+[NCERT Biology Ch 9, p. 154-157]
+Almost all enzymes are proteins. There are some nucleic acids that behave like enzymes; these are called ribozymes.
+An enzyme, like any protein, has a primary, secondary and tertiary structure. In tertiary structure, the backbone folds upon itself forming pockets or crevices. One such crevice is the 'active site'. An active site is a crevice into which the substrate fits. Thus enzymes, through their active sites, catalyse reactions at a high rate.
+Enzymes differ from inorganic catalysts: inorganic catalysts work efficiently at high temperatures and high pressures, while enzymes get damaged at high temperatures (say above 40 degrees C) due to denaturation. However, enzymes isolated from thermophilic organisms living in hot vents are thermally stable up to 80-90 degrees C.
+
+--- SECTION 9.11: HOW DO ENZYMES SPEED UP REACTIONS? ---
+[NCERT Biology Ch 9, p. 155-156]
+The chemical which is converted into a product is called a 'substrate' (S). The enzyme (E) converts S into P (Product).
+Substrate binds to the active site of the enzyme forming an enzyme-substrate complex (ES). During the state where substrate is bound to the enzyme active site, a new structure called transition state structure is formed.
+Enzymes bring down the activation energy barrier (Ea). Activation energy is the difference between the average energy of the reactants and the transition state energy. By lowering activation energy, enzymes increase the rate of reaction manifold.
+The catalytic cycle of an enzyme:
+1. Substrate binds to active site of enzyme fitting into the active site.
+2. Binding induces the enzyme to alter its shape, fitting more tightly around the substrate.
+3. The active site breaks or makes chemical bonds of substrate; an enzyme-product complex (EP) is formed.
+4. The enzyme releases the products and is free to bind another molecule of substrate.
+
+--- SECTION 9.12: FACTORS AFFECTING ENZYME ACTIVITY ---
+[NCERT Biology Ch 9, p. 156-157]
+1. Temperature and pH: Each enzyme shows its highest activity at a particular temperature and pH called the optimum temperature and optimum pH. Activity declines both below and above the optimum value. Low temperature preserves the enzyme in a temporarily inactive state, whereas high temperature destroys enzymatic activity because proteins are denatured by heat.
+2. Concentration of Substrate: With the increase in substrate concentration, the velocity of the enzymatic reaction rises at first until it reaches a maximum velocity (Vmax). Vmax cannot be exceeded because enzyme molecules are saturated with substrate.
+Michaelis constant (Km) is the substrate concentration at which the reaction velocity reaches half of its maximum velocity (Vmax/2).
+3. Inhibition: When the binding of a chemical shuts off enzyme activity, the process is called inhibition, and the chemical is an inhibitor.
+Competitive Inhibition: When the inhibitor closely resembles the substrate in its molecular structure and inhibits the activity of the enzyme by competing for the active site, it is a competitive inhibitor.
+Classic NEET Example: Inhibition of succinic dehydrogenase by malonate, which closely resembles the substrate succinate in structure. Competitive inhibitors increase Km while Vmax remains unchanged. Competitive inhibition is often used in the control of bacterial pathogens.
+
+--- SECTION 9.13: CLASSIFICATION OF ENZYMES ---
+[NCERT Biology Ch 9, p. 157-158]
+Enzymes are divided into 6 classes:
+1. Oxidoreductases / Dehydrogenases: Catalyse oxidoreduction between two substrates S and S'.
+2. Transferases: Catalyse a transfer of a group (other than hydrogen) between a pair of substrates.
+3. Hydrolases: Catalyse hydrolysis of ester, ether, peptide, glycosidic, C-C, C-halide or P-N bonds.
+4. Lyases: Catalyse removal of groups from substrates by mechanisms other than hydrolysis leaving double bonds.
+5. Isomerases: Catalyse inter-conversion of optical, geometric or positional isomers.
+6. Ligases: Catalyse the linking together of two compounds (e.g., enzymes catalysing joining of C-O, C-S, C-N, P-O bonds).
+
+--- SECTION 9.14: CO-FACTORS ---
+[NCERT Biology Ch 9, p. 158-159]
+Enzymes can be simple proteins or conjugated proteins composed of one or several polypeptide chains. In conjugated enzymes, non-protein constituents called co-factors are bound to the enzyme to make the enzyme catalytically active.
+The protein portion of the enzyme is called the apoenzyme.
+Catalytic activity is lost when the co-factor is removed from the enzyme.
+Three kinds of co-factors are known:
+1. Prosthetic groups: Organic compounds distinguished from other co-factors in that they are tightly bound to the apoenzyme. For example, in peroxidase and catalase, which catalyse the breakdown of hydrogen peroxide to water and oxygen, haem is the prosthetic group and it is a part of the active site of the enzyme.
+2. Co-enzymes: Organic compounds whose association with the apoenzyme is only transient, usually occurring during catalysis. Co-enzymes serve as co-factors in a number of different enzyme catalyzed reactions. The essential chemical components of many coenzymes are vitamins. For example, coenzyme nicotinamide adenine dinucleotide (NAD) and NADP contain the vitamin niacin.
+3. Metal ions: A number of enzymes require metal ions for their activity which form coordination bonds with side chains at the active site and at the same time form one or more coordination bonds with the substrate. For example, Zinc is a co-factor for the proteolytic enzyme carboxypeptidase.

@@ -1,0 +1,22 @@
+{
+  "name": "airneet-workspace",
+  "version": "1.0.0",
+  "description": "Production-ready, local-first offline Socratic RAG web app for NEET aspirants (AirNEET)",
+  "scripts": {
+    "dev:client": "npm --prefix client run dev",
+    "dev:server": "npm --prefix server run dev",
+    "build:client": "npm --prefix client run build",
+    "build:server": "npm --prefix server run build",
+    "ingest": "npm --prefix client run ingest"
+  },
+  "keywords": [
+    "neet",
+    "offline-rag",
+    "local-ai",
+    "ollama",
+    "socratic-tutor",
+    "hacktoberfest"
+  ],
+  "author": "Mentor for Sifat",
+  "license": "MIT"
+}
